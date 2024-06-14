@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureUtility.Utilities.Utilities.Extensions;
+﻿namespace CleanArchitectureUtility.Utilities.Extensions;
 
 public static class DateTimeX
 {

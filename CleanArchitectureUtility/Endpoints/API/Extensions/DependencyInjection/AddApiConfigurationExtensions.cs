@@ -1,8 +1,8 @@
-﻿using System.Data.SqlClient;
-using CleanArchitectureUtility.Endpoints.API.Filters;
+﻿using CleanArchitectureUtility.Endpoints.API.Filters;
 using CleanArchitectureUtility.Endpoints.API.MiddleWares.ApiExceptionHandler;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
