@@ -1,0 +1,42 @@
+﻿using CleanArchitectureUtility.Core.Abstractions.Serializers;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+namespace CleanArchitectureUtility.Utilities.Serializers.NewtonSoft;
+
+public class NewtonSoftSerializer : IJsonSerializer, IDisposable
+{
+    private readonly ILogger<NewtonSoftSerializer> _logger;
+
+    public NewtonSoftSerializer(ILogger<NewtonSoftSerializer> logger)
+    {
+        _logger = logger;
+        _logger.LogInformation("Newton Soft Serializer Start working");
+    }
+
+    public TOutput? Deserialize<TOutput>(string input)
+    {
+        _logger.LogTrace($"Newton Soft Serializer Deserialize with name {input}");
+        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject<TOutput>(input);
+    }
+
+    public object? Deserialize(string input, Type type)
+    {
+        _logger.LogTrace($"Newton Soft Serializer Deserialize with name {input} and type {type}");
+        return string.IsNullOrWhiteSpace(input) ? default : JsonConvert.DeserializeObject(input, type);
+    }
+
+    public string Serialize<TInput>(TInput input)
+    {
+        _logger.LogTrace($"Newton Soft Serializer Serialize with name {input}");
+        return input == null 
+            ? string.Empty 
+            : JsonConvert.SerializeObject(input, new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            });
+    }
+
+    public void Dispose() => _logger.LogInformation("Newton Soft Serializer Stop working");
+}

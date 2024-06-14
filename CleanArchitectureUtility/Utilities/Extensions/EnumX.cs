@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CleanArchitectureUtility.Utilities.Utilities.Extensions;
+namespace CleanArchitectureUtility.Utilities.Extensions;
 
 public static class EnumX
 {
