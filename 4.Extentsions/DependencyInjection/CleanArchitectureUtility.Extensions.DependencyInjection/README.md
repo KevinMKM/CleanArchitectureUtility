@@ -1,0 +1,3 @@
+Clean Architecture - Dependency Injection Extension
+This project demonstrates how to integrate Dependency Injection (DI) into a Clean Architecture setup. Dependency Injection is a technique used to implement Inversion of Control (IoC), making it easier to manage dependencies and enhance testability, maintainability, and flexibility. DI allows components to be injected into classes, reducing the coupling between different layers in your Clean Architecture.
+In this implementation, DI is set up in the Infrastructure Layer, where services, repositories, and other dependencies are registered and injected into the necessary classes in the Application Layer and Core Layer.

@@ -1,0 +1,2 @@
+Clean Architecture - Common Layer
+The Common layer is a foundational part of the Clean Architecture framework. It contains shared utilities, base classes, interfaces, and other common functionality that can be used across all layers of the application. This layer is designed to be independent of any specific application logic or infrastructure, ensuring reusability and separation of concerns.

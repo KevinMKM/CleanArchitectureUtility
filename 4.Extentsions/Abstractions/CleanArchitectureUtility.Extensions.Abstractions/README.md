@@ -1,0 +1,2 @@
+Clean Architecture - Abstraction Layer
+This project implements the Abstraction Layer of a Clean Architecture setup. The Abstraction Layer provides interfaces and abstract definitions that ensure the decoupling of the core domain logic from the external dependencies, such as databases, APIs, or third-party services. By separating these concerns, the system can be easily modified or extended with minimal impact on the core business logic.

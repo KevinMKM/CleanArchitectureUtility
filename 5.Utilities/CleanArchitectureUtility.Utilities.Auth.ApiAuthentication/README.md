@@ -1,0 +1,3 @@
+Clean Architecture - API Authentication Utility
+The API Authentication Utility provides a set of tools for implementing authentication in applications designed using Clean Architecture principles. This utility supports token-based authentication (JWT), role-based authorization, and secure access to API endpoints, ensuring that the system maintains clear separation of concerns and modularity.
+By following Clean Architecture, the utility helps maintain a maintainable, scalable, and testable authentication system, ensuring that authentication logic is decoupled from other layers of the application.

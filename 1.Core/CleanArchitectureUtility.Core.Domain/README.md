@@ -1,0 +1,2 @@
+Clean Architecture - Domain Layer
+This project implements the Domain Layer of a Clean Architecture setup. The Domain Layer represents the heart of the application and is responsible for the core business logic and the rules that drive the system. It is independent of frameworks, databases, and external services, making it highly maintainable and testable.

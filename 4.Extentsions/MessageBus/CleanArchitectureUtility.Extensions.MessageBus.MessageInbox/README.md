@@ -1,0 +1,3 @@
+Clean Architecture - Message Inbox Extension
+The Message Inbox Extension is a module designed for efficiently handling and displaying incoming messages in a system following the principles of Clean Architecture. This extension ensures that messages are retrieved, processed, and displayed in a way that adheres to SOLID principles and maintains separation of concerns.
+This component can be easily integrated into existing projects and allows for an extensible, maintainable approach to managing message inbox functionality.

@@ -1,0 +1,2 @@
+Clean Architecture - Application Service Layer
+This project implements the Application Service Layer in a Clean Architecture setup. The Application Service Layer acts as the intermediary between the domain layer (core business logic) and external layers (e.g., infrastructure, UI). It is responsible for managing application-specific workflows, coordinating use cases, and ensuring that external interactions (such as APIs or user interfaces) are properly handled.

@@ -1,0 +1,3 @@
+Clean Architecture - OpenTelemetry Registration Utility
+The OpenTelemetry Registration Utility is designed to integrate OpenTelemetry for observability and monitoring within applications following the Clean Architecture principles. This utility simplifies the setup and configuration of OpenTelemetry to collect telemetry data, such as traces, metrics, and logs, while ensuring that the core application logic remains decoupled from external libraries.
+By adhering to Clean Architecture, this utility ensures that the implementation of observability is modular, testable, and scalable while promoting separation of concerns and maintainable code.

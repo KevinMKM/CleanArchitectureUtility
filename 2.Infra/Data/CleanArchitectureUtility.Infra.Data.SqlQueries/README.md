@@ -1,0 +1,2 @@
+SQL Query Layer - Clean Architecture
+This Project is designed as part of a Clean Architecture implementation. It specifically focuses on the SQL Query Layer, responsible for data retrieval from a database using SQL. The SQL Query Layer is part of the Infrastructure layer in Clean Architecture and is used to fetch data from the database, ensuring proper separation of concerns and a well-structured application.

@@ -1,0 +1,3 @@
+Clean Architecture - Parrot Translator Extension
+The Parrot Translator Extension integrates the Parrot Translation API into applications designed with Clean Architecture principles. This extension provides an easy way to translate text between different languages by utilizing the Parrot Translation API, while ensuring the application structure remains decoupled and modular.
+By using the Parrot Translator Extension, your application can seamlessly interact with the translation service, leveraging Clean Architecture's layered approach to maintain clear separation of concerns and ensure scalability and maintainability.

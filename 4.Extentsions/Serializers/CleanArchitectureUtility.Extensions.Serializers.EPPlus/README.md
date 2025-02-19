@@ -1,0 +1,3 @@
+Clean Architecture - EPPlus Serializer Extension
+The EPPlus Serializer Extension is a utility module designed to integrate EPPlus (a powerful library for reading and writing Excel files) with systems following Clean Architecture principles. This extension provides a seamless way to serialize and deserialize data to and from Excel files, enabling applications to manage Excel data efficiently without tightly coupling to the framework’s details.
+This extension focuses on ensuring that the data transformation between different layers of your application remains clean and decoupled, adhering to the principles of Clean Architecture.

@@ -1,0 +1,3 @@
+Clean Architecture - SoftwarePartDetector Utility
+The SoftwarePartDetector Utility is designed to identify and track the various components, modules, or parts of a software application that are in use within a Clean Architecture framework. This utility helps in managing and organizing different software parts, ensuring modularity, maintainability, and scalability in complex systems. It works by identifying different "parts" of the software architecture (such as services, modules, libraries, or features), tracking their usage, and reporting any interdependencies.
+This utility provides the foundation for better understanding and analyzing the different sections of an application, leading to easier updates, better debugging, and improved system transparency.

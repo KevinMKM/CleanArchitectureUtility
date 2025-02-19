@@ -1,0 +1,3 @@
+Clean Architecture - NewtonSoft Serializer Extension
+The Newtonsoft Serializer Extension integrates Newtonsoft.Json (commonly known as Json.NET) into a system following Clean Architecture principles. This extension simplifies the process of serializing and deserializing data to and from JSON format, keeping your architecture decoupled and ensuring proper separation of concerns across layers.
+By using Newtonsoft.Json for JSON handling, this extension offers powerful features such as flexible custom converters, complex object serialization, and error handling, making it an ideal choice for applications that need advanced JSON manipulation.

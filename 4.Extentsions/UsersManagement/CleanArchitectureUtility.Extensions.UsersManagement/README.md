@@ -1,0 +1,3 @@
+Clean Architecture - Users Management Extension
+The Users Management Extension integrates user management functionality into applications following Clean Architecture principles. This extension provides essential features such as user registration, authentication, role-based access control (RBAC), and profile management, all while ensuring that the core business logic remains decoupled from external frameworks or services.
+By leveraging the Clean Architecture pattern, the Users Management Extension ensures scalability, maintainability, and testability by separating concerns into clear, distinct layers.

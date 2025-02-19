@@ -1,0 +1,3 @@
+Clean Architecture - Dapper ORM Extension
+This project demonstrates how to integrate Dapper ORM into a Clean Architecture setup. Dapper is a lightweight, high-performance Object-Relational Mapping (ORM) library that provides a simple way to interact with relational databases. Unlike traditional ORMs, Dapper focuses on raw SQL performance, making it a great choice for scenarios where performance is a key concern.
+In this Clean Architecture implementation, Dapper is used for data access in the Infrastructure Layer, while keeping the Core Layer and Application Layer decoupled from the specifics of the data access technology.

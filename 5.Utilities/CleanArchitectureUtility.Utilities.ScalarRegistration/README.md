@@ -1,0 +1,3 @@
+Clean Architecture - Scalar Registration Utility
+The Scalar Registration Utility is designed to manage scalar values, such as configuration settings, constants, and other simple data types, within applications that follow the Clean Architecture principles. This utility provides a structured way to register, manage, and access scalar values across various layers of the application, ensuring that the core business logic remains decoupled from external dependencies.
+By adhering to Clean Architecture, the Scalar Registration Utility ensures separation of concerns, making the application easier to maintain, extend, and test. It centralizes the configuration and scalar data management in a modular, clean way.

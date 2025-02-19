@@ -1,0 +1,3 @@
+Clean Architecture - Redis Caching Extension
+This project implements Redis caching as part of the Clean Architecture principles. The Redis caching extension enhances the performance of the application by storing frequently accessed data in memory, reducing the load on databases and improving response times for the end users.
+The caching logic follows Clean Architecture's guidelines, separating concerns into distinct layers to ensure maintainability, scalability, and testability.

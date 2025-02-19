@@ -1,0 +1,3 @@
+Clean Architecture - Microsoft Serializer Extension
+The Microsoft Serializer Extension is designed to integrate Microsoft's JSON Serialization (using System.Text.Json or Newtonsoft.Json) into applications based on Clean Architecture principles. This extension provides a streamlined way to serialize and deserialize data models to and from JSON format, while keeping a clean separation of concerns between different layers of the application.
+This extension simplifies working with JSON data and ensures that your application maintains proper encapsulation and decoupling, in line with the Clean Architecture principles.

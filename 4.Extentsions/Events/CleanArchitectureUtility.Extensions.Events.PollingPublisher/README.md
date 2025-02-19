@@ -1,0 +1,3 @@
+Clean Architecture - Polling Publisher Extension
+This project demonstrates how to implement a Polling Publisher in a Clean Architecture setup. A Polling Publisher periodically checks external systems for new data and publishes that data for further processing. This approach is common for applications that need to interact with APIs, message queues, or databases on a scheduled basis.
+In this implementation, the Polling Publisher pattern is encapsulated within the Application Layer, while the Infrastructure Layer is responsible for interacting with external systems. The polling mechanism runs on a scheduled task, and the processed data is published to appropriate services or repositories for further actions.

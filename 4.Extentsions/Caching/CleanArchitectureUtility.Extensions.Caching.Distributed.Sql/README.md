@@ -1,0 +1,3 @@
+Clean Architecture - SQL Caching Extension
+This project integrates SQL query result caching into a Clean Architecture application. The SQL caching extension helps to reduce redundant database queries by caching the results of frequently executed SQL queries. This caching layer follows the principles of Clean Architecture by ensuring separation of concerns, maintainability, and scalability.
+SQL results are cached either in-memory or using a distributed caching system (like Redis or in-memory database). Caching is handled at the repository layer, allowing for seamless integration with the core application logic.

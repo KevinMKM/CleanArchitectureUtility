@@ -1,0 +1,3 @@
+Clean Architecture - AutoMapper Extension
+The AutoMapper Extension is a utility module designed to streamline object-to-object mapping in systems built with Clean Architecture principles. This extension automates the process of transforming data models between different layers, such as entities, DTOs, and view models, while maintaining a clear separation of concerns. It helps reduce boilerplate code and improves maintainability by ensuring consistent mapping logic across the application.
+This extension integrates the widely-used AutoMapper library (or similar custom mapping functionality) to provide efficient and reusable object mapping.

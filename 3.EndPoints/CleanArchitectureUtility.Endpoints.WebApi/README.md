@@ -1,0 +1,3 @@
+Clean Architecture - Web API Endpoint Layer
+This project implements a Web API using Clean Architecture principles. The Web API endpoint layer is responsible for handling incoming HTTP requests, processing them, and returning the appropriate responses. The layer serves as an interface between the client and the core application logic.
+The Web API layer follows the principles of Clean Architecture by separating concerns into different layers to achieve maintainability, testability, and scalability.

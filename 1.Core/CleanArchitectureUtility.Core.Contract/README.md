@@ -1,0 +1,2 @@
+Clean Architecture - Contract Layer
+This project implements the Clean Architecture pattern, focusing on the Contract Layer for defining clear, abstract communication between different components of the application. The Contract Layer ensures that the core business logic and external interfaces (like API, database, UI, etc.) communicate through well-defined interfaces, decoupling the system and promoting maintainability and scalability.

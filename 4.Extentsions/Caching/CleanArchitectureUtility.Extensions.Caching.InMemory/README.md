@@ -1,0 +1,3 @@
+Clean Architecture - In-Memory Caching Extension
+This project implements an in-memory caching extension in a Clean Architecture setup. The in-memory caching extension helps to improve the performance of the application by caching data in the server’s memory, thus reducing the number of repetitive database calls and enhancing response times for frequently accessed data.
+The caching extension is designed to adhere to the principles of Clean Architecture, where the concerns are well-separated across layers to ensure scalability, maintainability, and testability.

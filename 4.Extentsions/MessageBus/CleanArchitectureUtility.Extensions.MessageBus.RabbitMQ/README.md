@@ -1,0 +1,3 @@
+Clean Architecture - RabbitMQ Extension
+The RabbitMQ Extension is a modular component designed for seamlessly integrating RabbitMQ message queue functionality within a system based on Clean Architecture principles. This extension provides a flexible, maintainable way to handle asynchronous message passing in your application, allowing it to communicate with other services or components in a decoupled manner.
+The extension is designed to be agnostic to the specific details of your message queue infrastructure and can be adapted to different messaging patterns like request-response, publish-subscribe, or point-to-point.
