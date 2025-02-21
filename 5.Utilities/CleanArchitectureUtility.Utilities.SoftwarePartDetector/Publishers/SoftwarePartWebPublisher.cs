@@ -3,7 +3,7 @@ using CleanArchitectureUtility.Extensions.Abstractions.Serializers;
 using CleanArchitectureUtility.Utilities.SoftwarePartDetector.Authentications;
 using CleanArchitectureUtility.Utilities.SoftwarePartDetector.DataModel;
 using CleanArchitectureUtility.Utilities.SoftwarePartDetector.Options;
-using IdentityModel.Client;
+using Duende.IdentityModel.Client;
 using Microsoft.Extensions.Options;
 
 namespace CleanArchitectureUtility.Utilities.SoftwarePartDetector.Publishers;

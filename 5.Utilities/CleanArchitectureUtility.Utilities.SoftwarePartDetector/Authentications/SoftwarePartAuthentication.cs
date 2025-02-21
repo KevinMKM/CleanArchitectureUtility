@@ -1,5 +1,5 @@
 ﻿using CleanArchitectureUtility.Utilities.SoftwarePartDetector.Options;
-using IdentityModel.Client;
+using Duende.IdentityModel.Client;
 using Microsoft.Extensions.Options;
 
 namespace CleanArchitectureUtility.Utilities.SoftwarePartDetector.Authentications;
