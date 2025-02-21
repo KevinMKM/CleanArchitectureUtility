@@ -26,7 +26,7 @@ public static class AddApplicationServicesExtensions
         services.AddTransient<CommandDispatcher, CommandDispatcher>();
         services.AddTransient<CommandDispatcherDomainExceptionHandlerDecorator, CommandDispatcherDomainExceptionHandlerDecorator>();
         services.AddTransient<CommandDispatcherValidationDecorator, CommandDispatcherValidationDecorator>();
-        services.AddTransient<ICommandDispatcher, CommandDispatcherValidationDecorator>();
+        services.AddTransient<ICommandDispatcher, CommandDispatcher>();
         return services;
     }
 

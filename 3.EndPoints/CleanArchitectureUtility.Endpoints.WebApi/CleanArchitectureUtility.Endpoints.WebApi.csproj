@@ -9,7 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Authors>Mohsen Koorani</Authors>
-    <Version>9.0.1</Version>
+    <Version>9.0.2</Version>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CleanArchitectureUtility.Core.ApplicationServices" Version="9.0.2" />
+    <PackageReference Include="CleanArchitectureUtility.Core.ApplicationServices" Version="9.0.3" />
     <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="9.0.13" />
     <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.3" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
