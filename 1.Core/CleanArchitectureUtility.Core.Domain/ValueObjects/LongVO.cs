@@ -4,6 +4,10 @@ public class LongVO : BaseValueObject<LongVO>
 {
     public long Value { get; }
 
+    private LongVO()
+    {
+    }
+
     public LongVO(long value)
     {
         Validate(value);

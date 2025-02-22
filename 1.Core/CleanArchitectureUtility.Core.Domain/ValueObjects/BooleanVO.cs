@@ -4,6 +4,10 @@ public class BooleanVO : BaseValueObject<BooleanVO>
 {
     public bool Value { get; }
 
+    private BooleanVO()
+    {
+    }
+
     public BooleanVO(bool value)
     {
         Validate(value);

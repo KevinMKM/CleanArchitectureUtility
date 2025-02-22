@@ -4,6 +4,10 @@ public class ShortVO : BaseValueObject<ShortVO>
 {
     public short Value { get; }
 
+    private ShortVO()
+    {
+    }
+
     public ShortVO(short value)
     {
         Validate(value);

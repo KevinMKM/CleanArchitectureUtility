@@ -6,11 +6,16 @@ public class IdVO : BaseValueObject<IdVO>
 {
     public Guid Value { get; }
 
+    private IdVO()
+    {
+    }
+
     public IdVO(Guid value)
     {
         Validate(value);
         Value = value;
     }
+
     public IdVO(string value)
     {
         Validate(value);

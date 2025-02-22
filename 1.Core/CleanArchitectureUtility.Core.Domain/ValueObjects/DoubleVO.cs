@@ -4,6 +4,10 @@ public class DoubleVO : BaseValueObject<DoubleVO>
 {
     public double Value { get; }
 
+    private DoubleVO()
+    {
+    }
+
     public DoubleVO(double value)
     {
         Validate(value);

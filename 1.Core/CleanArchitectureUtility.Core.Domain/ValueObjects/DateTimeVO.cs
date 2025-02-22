@@ -4,6 +4,10 @@ public class DateTimeVO : BaseValueObject<DateTimeVO>
 {
     public DateTime Value { get; }
 
+    private DateTimeVO()
+    {
+    }
+
     public DateTimeVO(DateTime value)
     {
         Validate(value);

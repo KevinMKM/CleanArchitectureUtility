@@ -4,6 +4,10 @@ public class IntegerVO : BaseValueObject<IntegerVO>
 {
     public int Value { get; }
 
+    private IntegerVO()
+    {
+    }
+
     public IntegerVO(int value)
     {
         Validate(value);

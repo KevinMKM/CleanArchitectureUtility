@@ -4,6 +4,10 @@ public class StringVO : BaseValueObject<StringVO>
 {
     public string Value { get; }
 
+    private StringVO()
+    {
+    }
+
     public StringVO(string value)
     {
         Validate(value);
@@ -18,7 +22,7 @@ public class StringVO : BaseValueObject<StringVO>
     {
         yield return Value;
     }
-    
+
     public static explicit operator string(StringVO vo) => vo.Value;
     public static implicit operator StringVO(string value) => new StringVO(value);
 }

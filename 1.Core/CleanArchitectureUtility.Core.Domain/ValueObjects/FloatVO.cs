@@ -4,6 +4,10 @@ public class FloatVO : BaseValueObject<FloatVO>
 {
     public float Value { get; }
 
+    private FloatVO()
+    {
+    }
+
     public FloatVO(float value)
     {
         Validate(value);
