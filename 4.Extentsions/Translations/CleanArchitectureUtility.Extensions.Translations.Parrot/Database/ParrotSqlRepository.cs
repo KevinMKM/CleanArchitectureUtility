@@ -42,7 +42,7 @@ public class ParrotSqlRepository
             var createTable = $"IF (NOT EXISTS (SELECT *  FROM INFORMATION_SCHEMA.TABLES WHERE " +
                 $"TABLE_SCHEMA = '{schema}' AND  TABLE_NAME = '{table}' )) Begin " +
                 $"CREATE TABLE [{schema}].[{table}]( " +
-                $"[Id] [UNIQUEIDENTIFIER] NOT NULL UNIQUE  default(newId()) Primary Key Identity(1,1)," +
+                $"[Id] [bigint] NOT NULL Primary Key Identity(1,1)," +
                 $"[Key] [nvarchar](255) NOT NULL," +
                 $"[Value] [nvarchar](500) NOT NULL," +
                 $"[Culture] [nvarchar](5) NULL)" +
@@ -101,7 +101,7 @@ public class ParrotSqlRepository
             parameters.Add("@Key", key);
             parameters.Add("@Culture", culture);
             parameters.Add("@Value", key);
-            record.Id = _dbConnection.Query<Guid>(_insertCommand, param: parameters, commandType: CommandType.Text).FirstOrDefault();
+            record.Id = _dbConnection.Query<long>(_insertCommand, param: parameters, commandType: CommandType.Text).FirstOrDefault();
             _localizationRecords.Add(record);
             return record.Value;
         }
