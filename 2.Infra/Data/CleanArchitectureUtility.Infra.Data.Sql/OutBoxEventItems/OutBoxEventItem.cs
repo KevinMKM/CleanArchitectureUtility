@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureUtility.Infra.Data.SqlCommands.OutBoxEventItems;
+﻿namespace CleanArchitectureUtility.Infra.Data.Sql.OutBoxEventItems;
 
 public class OutBoxEventItem
 {

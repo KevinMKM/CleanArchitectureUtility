@@ -23,6 +23,7 @@ public class StringVO : BaseValueObject<StringVO>
         yield return Value;
     }
 
+    public static StringVO FromString(string value) => new StringVO(value);
     public static explicit operator string(StringVO vo) => vo.Value;
     public static implicit operator StringVO(string value) => new StringVO(value);
 }

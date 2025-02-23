@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CleanArchitectureUtility.Infra.Data.SqlCommands.OutBoxEventItems;
+namespace CleanArchitectureUtility.Infra.Data.Sql.OutBoxEventItems;
 
 public class OutBoxEventItemConfig : IEntityTypeConfiguration<OutBoxEventItem>
 {

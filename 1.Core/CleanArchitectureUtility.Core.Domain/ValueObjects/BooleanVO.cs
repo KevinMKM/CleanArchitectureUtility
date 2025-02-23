@@ -25,7 +25,7 @@ public class BooleanVO : BaseValueObject<BooleanVO>
 
     public static BooleanVO True() => new BooleanVO(true);
     public static BooleanVO False() => new BooleanVO(false);
-    public static BooleanVO FromBool(bool value) => new BooleanVO(value);
+    public static BooleanVO FromBoolean(bool value) => new BooleanVO(value);
     public static explicit operator bool(BooleanVO vo) => vo.Value;
     public static implicit operator BooleanVO(bool value) => new BooleanVO(value);
 }

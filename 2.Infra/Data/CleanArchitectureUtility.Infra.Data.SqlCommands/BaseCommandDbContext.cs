@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using CleanArchitectureUtility.Core.Domain.Entities;
 using CleanArchitectureUtility.Core.Domain.ValueObjects;
 using CleanArchitectureUtility.Extensions.Abstractions.UsersManagements;
 using CleanArchitectureUtility.Infra.Data.SqlCommands.Extensions;
@@ -12,10 +13,12 @@ namespace CleanArchitectureUtility.Infra.Data.SqlCommands;
 
 public abstract class BaseCommandDbContext : DbContext
 {
-    protected IDbContextTransaction _transaction;
+    protected IDbContextTransaction Transaction;
+    private readonly Guid _currentUserId;
 
-    protected BaseCommandDbContext(DbContextOptions options) : base(options)
+    protected BaseCommandDbContext(DbContextOptions options, IUserInfoService userInfoService) : base(options)
     {
+        _currentUserId = userInfoService.UserId();
     }
 
     protected BaseCommandDbContext()
@@ -24,34 +27,24 @@ public abstract class BaseCommandDbContext : DbContext
 
     public void BeginTransaction()
     {
-        _transaction = Database.BeginTransaction();
+        Transaction = Database.BeginTransaction();
     }
 
     public void RollbackTransaction()
     {
-        if (_transaction == null)
+        if (Transaction == null)
             throw new NullReferenceException("Please call `BeginTransaction()` method first.");
 
-        _transaction.Rollback();
+        Transaction.Rollback();
     }
 
     public void CommitTransaction()
     {
-        if (_transaction == null)
+        if (Transaction == null)
             throw new NullReferenceException("Please call `BeginTransaction()` method first.");
 
-        _transaction.Commit();
+        Transaction.Commit();
     }
-
-    public T GetShadowPropertyValue<T>(object entity, string propertyName) where T : IConvertible
-    {
-        var value = Entry(entity).Property(propertyName).CurrentValue;
-        return value != null
-            ? (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture)
-            : default;
-    }
-
-    public object GetShadowPropertyValue(object entity, string propertyName) => Entry(entity).Property(propertyName).CurrentValue;
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -68,7 +61,7 @@ public abstract class BaseCommandDbContext : DbContext
     public override int SaveChanges()
     {
         ChangeTracker.DetectChanges();
-        BeforeSaveTriggers();
+        UpdateBaseEntityFields();
         ChangeTracker.AutoDetectChangesEnabled = false;
         var result = base.SaveChanges();
         ChangeTracker.AutoDetectChangesEnabled = true;
@@ -78,22 +71,24 @@ public abstract class BaseCommandDbContext : DbContext
     public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
     {
         ChangeTracker.DetectChanges();
-        BeforeSaveTriggers();
+        UpdateBaseEntityFields();
         ChangeTracker.AutoDetectChangesEnabled = false;
         var result = base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         ChangeTracker.AutoDetectChangesEnabled = true;
         return result;
     }
 
-    protected virtual void BeforeSaveTriggers()
+    protected virtual void UpdateBaseEntityFields()
     {
-        SetShadowProperties();
-    }
+        DateTime now = DateTime.UtcNow;
 
-    private void SetShadowProperties()
-    {
-        var userInfoService = this.GetService<IUserInfoService>();
-        ChangeTracker.SetAuditableEntityPropertyValues(userInfoService);
+        foreach (var entry in ChangeTracker.Entries<BaseEntity>())
+        {
+            if (entry.State == EntityState.Modified)
+            {
+                entry.Entity.SetUpdaterDetails(_currentUserId, now);
+            }
+        }
     }
 
     public IEnumerable<string> GetIncludePaths(Type clrEntityType)

@@ -23,6 +23,7 @@ public class DoubleVO : BaseValueObject<DoubleVO>
         yield return Value;
     }
 
+    public static DoubleVO FromDouble(double value) => new DoubleVO(value);
     public static explicit operator double(DoubleVO vo) => vo.Value;
     public static implicit operator DoubleVO(double value) => new DoubleVO(value);
 }

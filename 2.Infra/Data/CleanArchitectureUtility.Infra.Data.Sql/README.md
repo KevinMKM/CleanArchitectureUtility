@@ -1,0 +1,3 @@
+SQL Command Layer - Clean Architecture
+The SQL Command Layer in the Clean Architecture is responsible for handling all interactions with the underlying database using SQL queries and commands. It serves as an intermediary between the domain layer (business logic) and the database, abstracting the details of database communication and ensuring the persistence concerns are decoupled from the core application logic.
+In Clean Architecture, the SQL Command Layer is part of the Infrastructure Layer, and it implements the repository pattern to handle data persistence tasks such as inserting, updating, and deleting records.

@@ -23,6 +23,7 @@ public class ShortVO : BaseValueObject<ShortVO>
         yield return Value;
     }
 
+    public static ShortVO FromShort(short value) => new ShortVO(value);
     public static explicit operator short(ShortVO vo) => vo.Value;
     public static implicit operator ShortVO(short value) => new ShortVO(value);
 }

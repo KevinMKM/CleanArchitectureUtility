@@ -23,6 +23,7 @@ public class FloatVO : BaseValueObject<FloatVO>
         yield return Value;
     }
 
+    public static FloatVO FromFloat(float value) => new FloatVO(value);
     public static explicit operator float(FloatVO vo) => vo.Value;
     public static implicit operator FloatVO(float value) => new FloatVO(value);
 }

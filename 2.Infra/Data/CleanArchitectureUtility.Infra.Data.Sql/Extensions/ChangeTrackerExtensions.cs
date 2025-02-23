@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace CleanArchitectureUtility.Infra.Data.SqlCommands.Extensions;
+namespace CleanArchitectureUtility.Infra.Data.Sql.Extensions;
 
 public static class ChangeTrackerExtensions
 {

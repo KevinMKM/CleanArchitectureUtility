@@ -23,6 +23,7 @@ public class LongVO : BaseValueObject<LongVO>
         yield return Value;
     }
 
+    public static LongVO FromLong(long value) => new LongVO(value);
     public static explicit operator long(LongVO vo) => vo.Value;
     public static implicit operator LongVO(long value) => new LongVO(value);
 }

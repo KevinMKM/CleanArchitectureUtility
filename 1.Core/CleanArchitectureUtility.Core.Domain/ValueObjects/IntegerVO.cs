@@ -23,6 +23,7 @@ public class IntegerVO : BaseValueObject<IntegerVO>
         yield return Value;
     }
 
+    public static IntegerVO FromInteger(int value) => new IntegerVO(value);
     public static explicit operator int(IntegerVO vo) => vo.Value;
     public static implicit operator IntegerVO(int value) => new IntegerVO(value);
 }
