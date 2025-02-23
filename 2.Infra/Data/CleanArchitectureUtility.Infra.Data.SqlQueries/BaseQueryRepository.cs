@@ -4,10 +4,10 @@ namespace CleanArchitectureUtility.Infra.Data.SqlQueries;
 
 public class BaseQueryRepository<TDbContext> : IQueryRepository where TDbContext : BaseQueryDbContext
 {
-    protected readonly TDbContext _dbContext;
+    protected readonly TDbContext DbContext;
 
     public BaseQueryRepository(TDbContext dbContext)
     {
-        _dbContext = dbContext;
+        DbContext = dbContext;
     }
 }

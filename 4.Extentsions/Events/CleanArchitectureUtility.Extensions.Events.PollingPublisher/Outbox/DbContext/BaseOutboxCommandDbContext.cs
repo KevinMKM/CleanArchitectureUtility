@@ -1,4 +1,4 @@
-﻿using CleanArchitectureUtility.Extensions.Abstractions.Events;
+﻿using CleanArchitectureUtility.Extensions.Abstractions.UsersManagements;
 using CleanArchitectureUtility.Extensions.Events.PollingPublisher.Outbox.Configs;
 using CleanArchitectureUtility.Extensions.Events.PollingPublisher.Outbox.Interceptors;
 using CleanArchitectureUtility.Infra.Data.SqlCommands;
@@ -8,9 +8,8 @@ namespace CleanArchitectureUtility.Extensions.Events.PollingPublisher.Outbox.DbC
 
 public abstract class BaseOutboxCommandDbContext : BaseCommandDbContext
 {
-    public DbSet<OutBoxEventItem> OutBoxEventItems { get; set; }
-
-    protected BaseOutboxCommandDbContext(DbContextOptions options) : base(options)
+    protected BaseOutboxCommandDbContext(DbContextOptions options, IUserInfoService userInfoService) 
+        : base(options, userInfoService)
     {
     }
 

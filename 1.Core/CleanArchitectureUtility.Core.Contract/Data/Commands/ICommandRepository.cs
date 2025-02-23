@@ -18,7 +18,7 @@ public interface ICommandRepository<TEntity> : IUnitOfWork where TEntity : Aggre
     TEntity GetGraph(Guid id);
     Task<TEntity> GetGraphAsync(Guid id);
     TEntity GetGraph(IdVO id);
-    Task<TEntity> GetGraphAsync(IdVO id);
+    Task<TEntity?> GetGraphAsync(IdVO id);
     bool Exists(Expression<Func<TEntity, bool>> expression);
     Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression);
 }

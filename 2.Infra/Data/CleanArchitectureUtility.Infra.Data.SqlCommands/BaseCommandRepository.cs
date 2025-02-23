@@ -10,85 +10,71 @@ public class BaseCommandRepository<TEntity, TDbContext> : ICommandRepository<TEn
     where TEntity : AggregateRoot
     where TDbContext : BaseCommandDbContext
 {
-    protected readonly TDbContext _dbContext;
+    protected readonly TDbContext DbContext;
 
     public BaseCommandRepository(TDbContext dbContext)
     {
-        _dbContext = dbContext;
+        DbContext = dbContext;
     }
 
     void ICommandRepository<TEntity>.Delete(Guid id)
     {
-        var entity = _dbContext.Set<TEntity>().Find(id);
-        _dbContext.Set<TEntity>().Remove(entity);
+        var entity = DbContext.Set<TEntity>().Find(id);
+        DbContext.Set<TEntity>().Remove(entity);
     }
 
-    void ICommandRepository<TEntity>.Delete(TEntity entity)
-    {
-        _dbContext.Set<TEntity>().Remove(entity);
-    }
+    void ICommandRepository<TEntity>.Delete(TEntity entity) => DbContext.Set<TEntity>().Remove(entity);
 
     void ICommandRepository<TEntity>.DeleteGraph(Guid id)
     {
-        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
-        var query = _dbContext.Set<TEntity>().AsQueryable();
+        var graphPath = DbContext.GetIncludePaths(typeof(TEntity));
+        var query = DbContext.Set<TEntity>().AsQueryable();
         foreach (var item in graphPath) 
             query = query.Include(item);
 
         var entity = query.FirstOrDefault(c => c.Id.Value == id);
         if (entity?.Id?.Value != null && entity?.Id?.Value != Guid.Empty)
-            _dbContext.Set<TEntity>().Remove(entity);
+            DbContext.Set<TEntity>().Remove(entity);
     }
 
-    TEntity ICommandRepository<TEntity>.Get(Guid id) => _dbContext.Set<TEntity>().Find(id);
+    TEntity ICommandRepository<TEntity>.Get(Guid id) => DbContext.Set<TEntity>().Find(id);
 
-    public TEntity Get(IdVO id) => _dbContext.Set<TEntity>().FirstOrDefault(c => c.Id == id);
+    public TEntity Get(IdVO id) => DbContext.Set<TEntity>().FirstOrDefault(c => c.Id == id);
 
     TEntity ICommandRepository<TEntity>.GetGraph(Guid id)
     {
-        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
-        var query = _dbContext.Set<TEntity>().AsQueryable();
+        var graphPath = DbContext.GetIncludePaths(typeof(TEntity));
+        var query = DbContext.Set<TEntity>().AsQueryable();
         foreach (var item in graphPath) 
             query = query.Include(item);
 
         return query.FirstOrDefault(c => c.Id.Value == id);
     }
 
-    void ICommandRepository<TEntity>.Insert(TEntity entity)
-    {
-        _dbContext.Set<TEntity>().Add(entity);
-    }
+    void ICommandRepository<TEntity>.Insert(TEntity entity) => DbContext.Set<TEntity>().Add(entity);
 
-    bool ICommandRepository<TEntity>.Exists(Expression<Func<TEntity, bool>> expression)
-    {
-        return _dbContext.Set<TEntity>().Any(expression);
-    }
+    bool ICommandRepository<TEntity>.Exists(Expression<Func<TEntity, bool>> expression) => DbContext.Set<TEntity>().Any(expression);
 
     public TEntity GetGraph(IdVO id)
     {
-        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
-        var query = _dbContext.Set<TEntity>().AsQueryable();
+        var graphPath = DbContext.GetIncludePaths(typeof(TEntity));
+        var query = DbContext.Set<TEntity>().AsQueryable();
         foreach (var item in graphPath) 
             query = query.Include(item);
 
         return query.FirstOrDefault(c => c.Id == id);
     }
 
-    async Task ICommandRepository<TEntity>.InsertAsync(TEntity entity)
-    {
-        await _dbContext.Set<TEntity>().AddAsync(entity);
-    }
+    async Task ICommandRepository<TEntity>.InsertAsync(TEntity entity) => await DbContext.Set<TEntity>().AddAsync(entity);
 
-    async Task<TEntity> ICommandRepository<TEntity>.GetAsync(Guid id) => 
-        await _dbContext.Set<TEntity>().FindAsync(id);
+    async Task<TEntity> ICommandRepository<TEntity>.GetAsync(Guid id) => await DbContext.Set<TEntity>().FindAsync(id);
 
-    public async Task<TEntity> GetAsync(IdVO id) 
-        => await _dbContext.Set<TEntity>().FirstOrDefaultAsync(c => c.Id == id);
+    public async Task<TEntity> GetAsync(IdVO id) => await DbContext.Set<TEntity>().FirstOrDefaultAsync(c => c.Id == id);
 
     async Task<TEntity> ICommandRepository<TEntity>.GetGraphAsync(Guid id)
     {
-        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
-        var query = _dbContext.Set<TEntity>().AsQueryable();
+        var graphPath = DbContext.GetIncludePaths(typeof(TEntity));
+        var query = DbContext.Set<TEntity>().AsQueryable();
         foreach (var item in graphPath) 
             query = query.Include(item);
 
@@ -97,33 +83,24 @@ public class BaseCommandRepository<TEntity, TDbContext> : ICommandRepository<TEn
 
     public async Task<TEntity> GetGraphAsync(IdVO id)
     {
-        var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
-        var query = _dbContext.Set<TEntity>().AsQueryable();
+        var graphPath = DbContext.GetIncludePaths(typeof(TEntity));
+        var query = DbContext.Set<TEntity>().AsQueryable();
         foreach (var item in graphPath) 
             query = query.Include(item);
 
         return await query.FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    async Task<bool> ICommandRepository<TEntity>.ExistsAsync(Expression<Func<TEntity, bool>> expression) => 
-        await _dbContext.Set<TEntity>().AnyAsync(expression);
+    async Task<bool> ICommandRepository<TEntity>.ExistsAsync(Expression<Func<TEntity, bool>> expression) 
+        => await DbContext.Set<TEntity>().AnyAsync(expression);
 
-    public int Commit() => _dbContext.SaveChanges();
+    public int Commit() => DbContext.SaveChanges();
 
-    public Task<int> CommitAsync() => _dbContext.SaveChangesAsync();
+    public Task<int> CommitAsync() => DbContext.SaveChangesAsync();
 
-    public void BeginTransaction()
-    {
-        _dbContext.BeginTransaction();
-    }
+    public void BeginTransaction() => DbContext.BeginTransaction();
 
-    public void CommitTransaction()
-    {
-        _dbContext.CommitTransaction();
-    }
+    public void CommitTransaction() => DbContext.CommitTransaction();
 
-    public void RollbackTransaction()
-    {
-        _dbContext.RollbackTransaction();
-    }
+    public void RollbackTransaction() => DbContext.RollbackTransaction();
 }

@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CleanArchitectureUtility.Extensions.Abstractions.UsersManagements;
+using CleanArchitectureUtility.Infra.Data.Sql;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitectureUtility.Infra.Data.SqlQueries;
 
-public abstract class BaseQueryDbContext : DbContext
+public abstract class BaseQueryDbContext : BaseDbContext
 {
-    protected BaseQueryDbContext(DbContextOptions options) : base(options)
+    protected BaseQueryDbContext(DbContextOptions options, IUserInfoService userInfoService) : base(options, userInfoService)
     {
     }
 
