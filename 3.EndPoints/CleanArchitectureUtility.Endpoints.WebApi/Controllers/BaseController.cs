@@ -5,6 +5,7 @@ using CleanArchitectureUtility.Core.Contract.ApplicationServices.Events;
 using CleanArchitectureUtility.Core.Contract.ApplicationServices.Queries;
 using CleanArchitectureUtility.Endpoints.WebApi.Extensions;
 using CleanArchitectureUtility.Extensions.Abstractions.Serializers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +13,15 @@ namespace CleanArchitectureUtility.Endpoints.WebApi.Controllers;
 
 public class BaseController : Controller
 {
-    protected ICommandDispatcher CommandDispatcher => HttpContext.CommandDispatcher();
-    protected IQueryDispatcher QueryDispatcher => HttpContext.QueryDispatcher();
-    protected IEventDispatcher EventDispatcher => HttpContext.EventDispatcher();
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public BaseController(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+    protected ICommandDispatcher CommandDispatcher => _httpContextAccessor.CommandDispatcher();
+    protected IQueryDispatcher QueryDispatcher => _httpContextAccessor.QueryDispatcher();
+    protected IEventDispatcher EventDispatcher => _httpContextAccessor.EventDispatcher();
 
     public IActionResult Excel<T>(List<T> list)
     {
