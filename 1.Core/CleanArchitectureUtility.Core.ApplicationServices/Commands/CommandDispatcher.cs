@@ -26,7 +26,8 @@ public class CommandDispatcher : ICommandDispatcher
         try
         {
             _logger.LogDebug($"Routing command of type {command.GetType()} With value {command}  Start at {DateTime.UtcNow}");
-            var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();
+            using var scope = _serviceProvider.CreateScope();
+            var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<TCommand>>();
             return await handler.Handle(command, cancellationToken);
         }
         catch (InvalidOperationException ex)
@@ -48,7 +49,8 @@ public class CommandDispatcher : ICommandDispatcher
         try
         {
             _logger.LogDebug($"Routing command of type {command.GetType()} With value {command}  Start at {DateTime.UtcNow}");
-            var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand, TData>>();
+            using var scope = _serviceProvider.CreateScope();
+            var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<TCommand, TData>>();
             return await handler.Handle(command, cancellationToken);
         }
         catch (Exception ex)

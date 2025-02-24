@@ -25,7 +25,8 @@ public class QueryDispatcher : IQueryDispatcher
         try
         {
             _logger.LogDebug($"Routing query of type {query.GetType()} With value {query}  Start at {DateTime.UtcNow}");
-            var handler = _serviceProvider.GetRequiredService<IQueryHandler<TQuery, TData>>();
+            using var scope = _serviceProvider.CreateScope();
+            var handler = scope.ServiceProvider.GetRequiredService<IQueryHandler<TQuery, TData>>();
             return handler.Handle(query, cancellationToken);
         }
         catch (InvalidOperationException ex)

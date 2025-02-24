@@ -18,7 +18,8 @@ public class EventDispatcher : IEventDispatcher
 
     public Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : IDomainEvent
     {
-        var handlers = _serviceProvider.GetServices<IDomainEventHandler<TDomainEvent>>().ToList();
+        using var scope = _serviceProvider.CreateScope();
+        var handlers = scope.ServiceProvider.GetServices<IDomainEventHandler<TDomainEvent>>().ToList();
         _logger.LogDebug($"Routing event of type {@event.GetType()} With value {@event}  Start at {DateTime.UtcNow}");
         foreach (var handler in handlers) 
             handler.Handle(@event);
