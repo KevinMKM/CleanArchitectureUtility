@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using CleanArchitectureUtility.Core.ApplicationServices.Extensions;
 using CleanArchitectureUtility.Extensions.Abstractions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyModel;
@@ -10,7 +11,7 @@ public static class Extensions
     public static IServiceCollection AddDependencies(this IServiceCollection services, params string[] assemblyNamesForSearch)
     {
         var assemblies = GetAssemblies(assemblyNamesForSearch);
-        services.AddApplicationServices(assemblies)
+        services.AddApplicationServiceDependencies(assemblies)
             .AddDataAccess(assemblies)
             .AddUtilityServices()
             .AddCustomDependencies(assemblies);

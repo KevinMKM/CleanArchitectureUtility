@@ -19,14 +19,15 @@ public class CommandDispatcher : ICommandDispatcher
         _logger = logger;
     }
 
-    public async Task<CommandResult> Send<TCommand>(TCommand command) where TCommand : class, ICommand
+    public async Task<CommandResult> Send<TCommand>(TCommand command, CancellationToken cancellationToken)
+        where TCommand : class, ICommand
     {
         _stopwatch.Start();
         try
         {
             _logger.LogDebug($"Routing command of type {command.GetType()} With value {command}  Start at {DateTime.UtcNow}");
             var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();
-            return await handler.Handle(command);
+            return await handler.Handle(command, cancellationToken);
         }
         catch (InvalidOperationException ex)
         {
@@ -40,7 +41,7 @@ public class CommandDispatcher : ICommandDispatcher
         }
     }
 
-    public async Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command)
+    public async Task<CommandResult<TData>> Send<TCommand, TData>(TCommand command, CancellationToken cancellationToken)
         where TCommand : class, ICommand<TData>
     {
         _stopwatch.Start();
@@ -48,7 +49,7 @@ public class CommandDispatcher : ICommandDispatcher
         {
             _logger.LogDebug($"Routing command of type {command.GetType()} With value {command}  Start at {DateTime.UtcNow}");
             var handler = _serviceProvider.GetRequiredService<ICommandHandler<TCommand, TData>>();
-            return await handler.Handle(command);
+            return await handler.Handle(command, cancellationToken);
         }
         catch (Exception ex)
         {

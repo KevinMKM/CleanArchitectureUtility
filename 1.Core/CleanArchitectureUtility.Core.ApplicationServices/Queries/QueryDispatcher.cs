@@ -19,14 +19,14 @@ public class QueryDispatcher : IQueryDispatcher
         _logger = logger;
     }
 
-    public Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query) where TQuery : class, IQuery<TData>
+    public Task<QueryResult<TData>> Execute<TQuery, TData>(TQuery query, CancellationToken cancellationToken) where TQuery : class, IQuery<TData>
     {
         _stopwatch.Start();
         try
         {
             _logger.LogDebug($"Routing query of type {query.GetType()} With value {query}  Start at {DateTime.UtcNow}");
             var handler = _serviceProvider.GetRequiredService<IQueryHandler<TQuery, TData>>();
-            return handler.Handle(query);
+            return handler.Handle(query, cancellationToken);
         }
         catch (InvalidOperationException ex)
         {

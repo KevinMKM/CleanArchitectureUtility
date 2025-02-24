@@ -8,12 +8,12 @@ namespace CleanArchitectureUtility.Endpoints.WebApi.Extensions;
 
 public static class HttpContextExtensions
 {
-    public static ICommandDispatcher? CommandDispatcher(this IHttpContextAccessor httpContextAccessor) 
-        => httpContextAccessor.HttpContext?.RequestServices.GetRequiredService<ICommandDispatcher>();
+    public static ICommandDispatcher CommandDispatcher(this HttpContext httpContext) 
+        => httpContext.RequestServices.GetRequiredService<ICommandDispatcher>();
 
-    public static IQueryDispatcher? QueryDispatcher(this IHttpContextAccessor httpContextAccessor)
-        => httpContextAccessor.HttpContext?.RequestServices.GetRequiredService<IQueryDispatcher>();
+    public static IQueryDispatcher QueryDispatcher(this HttpContext httpContext)
+        => httpContext.RequestServices.GetRequiredService<IQueryDispatcher>();
 
-    public static IEventDispatcher? EventDispatcher(this IHttpContextAccessor httpContextAccessor)
-        => httpContextAccessor.HttpContext?.RequestServices.GetRequiredService<IEventDispatcher>();
+    public static IEventDispatcher EventDispatcher(this HttpContext httpContext)
+        => httpContext.RequestServices.GetRequiredService<IEventDispatcher>();
 }

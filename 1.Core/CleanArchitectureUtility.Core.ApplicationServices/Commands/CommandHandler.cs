@@ -15,7 +15,7 @@ public abstract class CommandHandler<TCommand, TData> : ICommandHandler<TCommand
         _translator = serviceProvider.GetService<ITranslator>();
     }
     
-    public abstract Task<CommandResult<TData>> Handle(TCommand request);
+    public abstract Task<CommandResult<TData>> Handle(TCommand request, CancellationToken cancellationToken);
 
     protected virtual Task<CommandResult<TData>> OkAsync(TData data)
     {
@@ -45,15 +45,9 @@ public abstract class CommandHandler<TCommand, TData> : ICommandHandler<TCommand
         return CommandResult;
     }
 
-    protected void AddMessage(string message)
-    {
-        CommandResult.AddMessage(_translator[message]);
-    }
+    protected void AddMessage(string message) => CommandResult.AddMessage(_translator[message]);
 
-    protected void AddMessage(string message, params string[] arguments)
-    {
-        CommandResult.AddMessage(_translator[message, arguments]);
-    }
+    protected void AddMessage(string message, params string[] arguments) => CommandResult.AddMessage(_translator[message, arguments]);
 }
 
 public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where TCommand : ICommand
@@ -66,7 +60,7 @@ public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where
         _translator = serviceProvider.GetService<ITranslator>();
     }
 
-    public abstract Task<CommandResult> Handle(TCommand request);
+    public abstract Task<CommandResult> Handle(TCommand request, CancellationToken cancellationToken);
 
     protected virtual Task<CommandResult> OkAsync()
     {
@@ -92,13 +86,7 @@ public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand> where
         return CommandResult;
     }
 
-    protected void AddMessage(string message)
-    {
-        CommandResult.AddMessage(_translator[message]);
-    }
+    protected void AddMessage(string message) => CommandResult.AddMessage(_translator[message]);
 
-    protected void AddMessage(string message, params string[] arguments)
-    {
-        CommandResult.AddMessage(_translator[message, arguments]);
-    }
+    protected void AddMessage(string message, params string[] arguments) => CommandResult.AddMessage(_translator[message, arguments]);
 }

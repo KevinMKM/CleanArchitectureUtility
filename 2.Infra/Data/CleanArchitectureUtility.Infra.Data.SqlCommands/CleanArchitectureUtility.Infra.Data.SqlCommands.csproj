@@ -9,7 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Authors>Mohsen Koorani</Authors>
-    <Version>9.0.7</Version>
+    <Version>9.0.8</Version>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -20,10 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.7" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.8" />
     <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="9.0.9" />
     <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="9.0.13" />
-    <PackageReference Include="CleanArchitectureUtility.Infra.Data.Sql" Version="9.0.2" />
+    <PackageReference Include="CleanArchitectureUtility.Infra.Data.Sql" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
   </ItemGroup>
 

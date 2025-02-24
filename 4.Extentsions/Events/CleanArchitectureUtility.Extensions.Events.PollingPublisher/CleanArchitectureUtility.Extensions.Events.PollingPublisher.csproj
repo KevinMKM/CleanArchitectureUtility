@@ -9,7 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Authors>Mohsen Koorani</Authors>
-    <Version>9.0.3</Version>
+    <Version>9.0.4</Version>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -21,9 +21,9 @@
 
   <ItemGroup>
     <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="9.0.9" />
-    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.7" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.8" />
     <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="9.0.13" />
-    <PackageReference Include="CleanArchitectureUtility.Infra.Data.SqlCommands" Version="9.0.7" />
+    <PackageReference Include="CleanArchitectureUtility.Infra.Data.SqlCommands" Version="9.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />

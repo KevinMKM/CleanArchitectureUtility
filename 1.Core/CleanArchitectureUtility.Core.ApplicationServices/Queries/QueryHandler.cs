@@ -7,7 +7,7 @@ public abstract class QueryHandler<TQuery, TData> : IQueryHandler<TQuery, TData>
 {
     protected readonly QueryResult<TData> QueryResult = new();
 
-    public abstract Task<QueryResult<TData>> Handle(TQuery request);
+    public abstract Task<QueryResult<TData>> Handle(TQuery request, CancellationToken cancellationToken);
 
     protected virtual Task<QueryResult<TData>> ResultAsync(TData data, ApplicationServiceStatus status)
     {
