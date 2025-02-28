@@ -10,7 +10,8 @@ public static class Extensions
 {
     public static IServiceCollection AddDependencies(this IServiceCollection services, params string[] assemblyNamesForSearch)
     {
-        var assemblies = GetAssemblies(assemblyNamesForSearch);
+        var assemblyNames = assemblyNamesForSearch.Append("CleanArchitectureUtility").ToArray();
+        var assemblies = GetAssemblies(assemblyNames);
         services.AddApplicationServiceDependencies(assemblies)
             .AddDataAccess(assemblies)
             .AddUtilityServices()
