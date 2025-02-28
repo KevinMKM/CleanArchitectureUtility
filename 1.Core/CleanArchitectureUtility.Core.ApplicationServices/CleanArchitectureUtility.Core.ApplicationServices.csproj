@@ -9,7 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Authors>Mohsen Koorani</Authors>
-    <Version>10.0.0</Version>
+    <Version>10.0.1</Version>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="10.0.0" />
-    <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="10.0.0" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="10.0.1" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="10.0.1" />
     <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="10.0.0" />
     <PackageReference Include="FluentValidation" Version="12.0.0-preview1" />
     <PackageReference Include="Scrutor" Version="6.0.1" />

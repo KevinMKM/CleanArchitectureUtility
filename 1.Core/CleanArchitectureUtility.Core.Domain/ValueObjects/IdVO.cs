@@ -47,7 +47,7 @@ public class IdVO : BaseValueObject<IdVO>
     public static IdVO Empty() => new(Guid.Empty);
     public override string ToString() => Value.ToString();
     public static explicit operator string(IdVO vo) => vo.Value.ToString();
-    public static explicit operator IdVO(string value) => new(value);
+    public static implicit operator IdVO(string value) => new(value);
     public static explicit operator Guid(IdVO vo) => vo.Value;
-    public static explicit operator IdVO(Guid value) => new(value);
+    public static implicit operator IdVO(Guid value) => new(value);
 }
