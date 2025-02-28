@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -9,7 +9,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Authors>Mohsen Koorani</Authors>
-    <Version>9.0.4</Version>
+    <Version>10.0.0</Version>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -20,17 +20,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="9.0.9" />
-    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="9.0.8" />
-    <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="9.0.13" />
-    <PackageReference Include="CleanArchitectureUtility.Infra.Data.SqlCommands" Version="9.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Domain" Version="10.0.0" />
+    <PackageReference Include="CleanArchitectureUtility.Core.Contract" Version="10.0.0" />
+    <PackageReference Include="CleanArchitectureUtility.Extensions.Abstractions" Version="10.0.0" />
+    <PackageReference Include="CleanArchitectureUtility.Infra.Data.SqlCommands" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0-preview.1.25081.1" />
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.0-preview.1.25081.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0-preview.1.25080.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0-preview.1.25080.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0-preview.1.25080.5" />
   </ItemGroup>
 
 </Project>
