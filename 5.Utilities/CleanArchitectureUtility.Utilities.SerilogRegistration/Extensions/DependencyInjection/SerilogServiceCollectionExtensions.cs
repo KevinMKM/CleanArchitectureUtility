@@ -7,6 +7,7 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Enrichers.Span;
 using Serilog.Exceptions;
+using ActivityEnricher = CleanArchitectureUtility.Utilities.SerilogRegistration.Enrichers.ActivityEnricher;
 
 namespace CleanArchitectureUtility.Utilities.SerilogRegistration.Extensions.DependencyInjection;
 
@@ -32,6 +33,7 @@ public static class SerilogServiceCollectionExtensions
         List<ILogEventEnricher> logEventEnrichers = new();
         builder.Services.AddTransient<UserInfoEnricher>();
         builder.Services.AddTransient<ApplicaitonEnricher>();
+        builder.Services.AddTransient<ActivityEnricher>();
         foreach (var enricherType in enrichersType)
             builder.Services.AddTransient(enricherType);
 
@@ -39,6 +41,7 @@ public static class SerilogServiceCollectionExtensions
         {
             logEventEnrichers.Add(services.GetRequiredService<UserInfoEnricher>());
             logEventEnrichers.Add(services.GetRequiredService<ApplicaitonEnricher>());
+            logEventEnrichers.Add(services.GetRequiredService<ActivityEnricher>());
             logEventEnrichers.AddRange(enrichersType.Select(enricherType => services.GetRequiredService(enricherType) as ILogEventEnricher));
             lc.Enrich.FromLogContext()
                 .Enrich.With(logEventEnrichers.ToArray())
